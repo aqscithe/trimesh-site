@@ -47,7 +47,8 @@ const buildYouTubeUrl = () => {
     iv_load_policy: '3',
     fs: '0',
     disablekb: '1',
-    playsinline: '1'
+    playsinline: '1',
+    enablejsapi: '1' // Enable JavaScript API for event listening
   });
   
   if (startTime > 0) params.set('start', startTime.toString());
@@ -59,15 +60,22 @@ const buildYouTubeUrl = () => {
 
 const videoUrl = buildYouTubeUrl();
 const sectionId = `video-bg-section-${Math.random().toString(36).substr(2, 9)}`;
+const playerId = `video-player-${Math.random().toString(36).substr(2, 9)}`;
+
+// Set dynamic CSS properties based on controls
+const videoWidth = controls ? 'calc(100% + 100px)' : 'calc(100% + 200px)';
+const videoHeight = controls ? 'calc(100% + 100px)' : 'calc(100% + 200px)';
+const pointerEvents = controls ? 'auto' : 'none';
 ---
 
 <section 
   class={`video-background-section ${className}`}
   id={sectionId}
-  style={`height: ${height}; min-height: ${minHeight}; --video-opacity: ${opacity}; --overlay-color: ${overlayColor}; --overlay-opacity: ${overlayOpacity};`}
+  style={`height: ${height}; min-height: ${minHeight}; --video-opacity: ${opacity}; --overlay-color: ${overlayColor}; --overlay-opacity: ${overlayOpacity}; --video-width: ${videoWidth}; --video-height: ${videoHeight}; --video-pointer-events: ${pointerEvents};`}
 >
   <div class="video-container">
     <iframe
+      id={playerId}
       src={videoUrl}
       title="Background Video"
       frameborder="0"
@@ -100,18 +108,18 @@ const sectionId = `video-bg-section-${Math.random().toString(36).substr(2, 9)}`;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1;
+    z-index: 2;
   }
 
   .video-iframe {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: calc(100% + 200px); /* Oversized to hide controls */
-    height: calc(100% + 200px);
+    width: var(--video-width, calc(100% + 200px));
+    height: var(--video-height, calc(100% + 200px));
     transform: translate(-50%, -50%);
     opacity: var(--video-opacity, 1);
-    pointer-events: none;
+    pointer-events: var(--video-pointer-events, none);
     border: none;
   }
 
@@ -124,7 +132,7 @@ const sectionId = `video-bg-section-${Math.random().toString(36).substr(2, 9)}`;
     background: var(--overlay-color, rgba(0, 0, 0, 0.3));
     opacity: var(--overlay-opacity, 0.3);
     pointer-events: none;
-    z-index: 2;
+    z-index: 1;
   }
 
   .content-overlay {
@@ -178,34 +186,99 @@ const sectionId = `video-bg-section-${Math.random().toString(36).substr(2, 9)}`;
 </style>
 
 <script>
+  // Load YouTube Player API
+  if (!window.YT) {
+    const tag = document.createElement('script');
+    tag.src = 'https://www.youtube.com/iframe_api';
+    const firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag);
+  }
+
   // Type declarations
   interface CustomVideoElement extends Element {
     videoBackgroundController?: VideoBackgroundSectionController;
   }
 
-  // Simple video background controller
+  declare global {
+    interface Window {
+      YT: any;
+      onYouTubeIframeAPIReady: () => void;
+      videoPlayers: { [key: string]: any };
+    }
+  }
+
+  // Initialize global players object
+  window.videoPlayers = window.videoPlayers || {};
+
+  // Enhanced video background controller with YouTube API
   class VideoBackgroundSectionController {
     section: Element;
     iframe: HTMLIFrameElement | null;
+    player: any;
+    playerId: string;
     isLoaded: boolean;
     
     constructor(section: Element) {
       this.section = section;
       this.iframe = section.querySelector('.video-iframe');
+      this.playerId = this.iframe?.id || '';
       this.isLoaded = false;
       this.init();
     }
 
     init() {
-      // Listen for iframe load
-      if (this.iframe) {
-        this.iframe.addEventListener('load', () => {
-          this.isLoaded = true;
-        });
-      }
-
       // Add intersection observer for performance
       this.setupIntersectionObserver();
+      
+      // Initialize YouTube player when API is ready
+      if (window.YT && window.YT.Player) {
+        this.initializePlayer();
+      } else {
+        // Wait for API to load
+        const checkYTReady = () => {
+          if (window.YT && window.YT.Player) {
+            this.initializePlayer();
+          } else {
+            setTimeout(checkYTReady, 100);
+          }
+        };
+        checkYTReady();
+      }
+    }
+
+    initializePlayer() {
+      if (!this.playerId || !this.iframe) return;
+      
+      this.player = new window.YT.Player(this.playerId, {
+        events: {
+          'onReady': (event: any) => {
+            this.isLoaded = true;
+            // Store player reference globally
+            window.videoPlayers[this.playerId] = this.player;
+          },
+          'onStateChange': (event: any) => {
+            this.onPlayerStateChange(event);
+          }
+        }
+      });
+    }
+
+    onPlayerStateChange(event: any) {
+      const heroSection = document.querySelector('.trimesh-video-hero');
+      if (!heroSection) return;
+
+      // YT.PlayerState constants
+      const PlayerState = window.YT.PlayerState;
+      
+      switch (event.data) {
+        case PlayerState.PLAYING:
+          heroSection.classList.remove('video-paused');
+          break;
+        case PlayerState.PAUSED:
+        case PlayerState.ENDED:
+          heroSection.classList.add('video-paused');
+          break;
+      }
     }
 
     setupIntersectionObserver() {
@@ -223,7 +296,18 @@ const sectionId = `video-bg-section-${Math.random().toString(36).substr(2, 9)}`;
     }
   }
 
-  // Initialize video background sections
+  // Global YouTube API ready callback
+  window.onYouTubeIframeAPIReady = function() {
+    // Initialize any existing video sections
+    const videoSections = document.querySelectorAll('.video-background-section');
+    videoSections.forEach(section => {
+      if (!(section as CustomVideoElement).videoBackgroundController) {
+        (section as CustomVideoElement).videoBackgroundController = new VideoBackgroundSectionController(section);
+      }
+    });
+  };
+
+  // Initialize video background sections when DOM is ready
   document.addEventListener('DOMContentLoaded', () => {
     const videoSections = document.querySelectorAll('.video-background-section');
     

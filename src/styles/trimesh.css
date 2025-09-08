@@ -2393,6 +2393,14 @@ body {
 /* Brand Section with Large Logo */
 .trimesh-video-hero .brand-section {
   margin-bottom: 3rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+.trimesh-video-hero.video-paused .brand-section {
+  opacity: 1;
+  visibility: visible;
 }
 
 .trimesh-video-hero .brand-logo-container {

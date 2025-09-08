@@ -294,24 +294,6 @@ import VideoBackgroundSection from '../components/VideoBackgroundSection.astro';
         <!-- Future DBA logos go here -->
       </ul>
     </div>
-    <!-- Video Modal (auto-load) -->
-    <div class="cinematic-modal" id="video-modal">
-      <div class="cinematic-backdrop"></div>
-      <div class="cinematic-container">
-        <button class="cinematic-close" aria-label="Close video">&times;</button>
-        <div class="cinematic-video-wrapper">
-          <iframe
-            id="youtube-player"
-            src="https://www.youtube.com/embed/DQzuqZDV2A8?autoplay=1&mute=1&rel=0&showinfo=0&modestbranding=1&controls=1"
-            title="Drone Cinematic Demo"
-            frameborder="0"
-            allowfullscreen
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          ></iframe>
-        </div>
-      </div>
-    </div>
-    <script type="module" src="/src/scripts/videoModal.ts"></script>
     
     <!-- Global Floating Widgets -->
     <div class="global-widgets">
@@ -341,12 +323,13 @@ import VideoBackgroundSection from '../components/VideoBackgroundSection.astro';
     
     <!-- Enhanced Video Background Section with Integrated Navigation and Hero Content -->
     <VideoBackgroundSection
-      videoId="DQzuqZDV2A8"
+      videoId="8Y_Z3NDEAqU"
       height="100vh"
       minHeight="700px"
       autoplay={true}
       muted={true}
       loop={true}
+      controls={true}
       opacity={1.0}
       overlayColor="rgba(0, 0, 0, 0.1)"
       overlayOpacity={0.1}
@@ -376,12 +359,6 @@ import VideoBackgroundSection from '../components/VideoBackgroundSection.astro';
         <div class="video-cta-section">
           <button class="video-cta-primary">GET QUOTE</button>
           <button class="video-cta-secondary">VIEW SERVICES</button>
-          <button class="video-cta-showcase" id="showcase-btn">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M8 5V19L19 12L8 5Z" fill="currentColor"/>
-            </svg>
-            SHOWCASE
-          </button>
         </div>
 
         <!-- Bottom Accent Text (inspired by wheat field example) -->
@@ -450,14 +427,6 @@ import VideoBackgroundSection from '../components/VideoBackgroundSection.astro';
             </div>
             
             <div class="nav-links">
-                <a href="#showcase" class="nav-link">
-                    <div class="nav-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M15 10L11 14L17 20L21 4L3 11L10 14L15 10Z" stroke="currentColor" stroke-width="2" fill="none"/>
-                        </svg>
-                    </div>
-                    <span>See in Action</span>
-                </a>
                 <a href="#services" class="nav-link">
                     <div class="nav-icon">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -506,12 +475,6 @@ import VideoBackgroundSection from '../components/VideoBackgroundSection.astro';
         <!-- Mobile Navigation -->
         <div class="mobile-nav">
             <div class="mobile-nav-links">
-                <a href="#showcase" class="mobile-nav-link">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15 10L11 14L17 20L21 4L3 11L10 14L15 10Z" stroke="currentColor" stroke-width="2" fill="none"/>
-                    </svg>
-                    <span>See Drones in Action</span>
-                </a>
                 <a href="#services" class="mobile-nav-link">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 2L22 7L12 12L2 7L12 2Z" stroke="currentColor" stroke-width="2" fill="none"/>
@@ -543,79 +506,6 @@ import VideoBackgroundSection from '../components/VideoBackgroundSection.astro';
     </nav>
 
     <main>
-        <!-- Video Showcase Section -->
-        <section id="showcase" class="video-showcase">
-            <div class="container">
-                <h2 class="section-title">See Our Drones in Action</h2>
-                <p class="section-subtitle">Real projects, real results. Watch how we deliver precision and efficiency from above.</p>
-                
-                <div class="video-grid">
-                    <div class="video-card featured">
-                        <div class="video-placeholder">
-                            <div class="play-button">
-                                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M8 5V19L19 12L8 5Z" fill="currentColor"/>
-                                </svg>
-                            </div>
-                            <img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Construction Site Survey" class="video-thumbnail">
-                        </div>
-                        <div class="video-info">
-                            <h3>Construction Site Survey</h3>
-                            <p>Complete site mapping and progress monitoring for a major commercial development project.</p>
-                            <span class="video-duration">3:24</span>
-                        </div>
-                    </div>
-                    
-                    <div class="video-card">
-                        <div class="video-placeholder">
-                            <div class="play-button">
-                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M8 5V19L19 12L8 5Z" fill="currentColor"/>
-                                </svg>
-                            </div>
-                            <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Land Surveying" class="video-thumbnail">
-                        </div>
-                        <div class="video-info">
-                            <h3>Precision Land Surveying</h3>
-                            <p>High-accuracy topographical mapping using advanced LiDAR technology.</p>
-                            <span class="video-duration">2:15</span>
-                        </div>
-                    </div>
-                    
-                    <div class="video-card">
-                        <div class="video-placeholder">
-                            <div class="play-button">
-                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M8 5V19L19 12L8 5Z" fill="currentColor"/>
-                                </svg>
-                            </div>
-                            <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Search and Rescue" class="video-thumbnail">
-                        </div>
-                        <div class="video-info">
-                            <h3>Search & Rescue Operations</h3>
-                            <p>Rapid deployment and thermal imaging for emergency response scenarios.</p>
-                            <span class="video-duration">4:02</span>
-                        </div>
-                    </div>
-                    
-                    <div class="video-card">
-                        <div class="video-placeholder">
-                            <div class="play-button">
-                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M8 5V19L19 12L8 5Z" fill="currentColor"/>
-                                </svg>
-                            </div>
-                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Building Inspection" class="video-thumbnail">
-                        </div>
-                        <div class="video-info">
-                            <h3>High-Rise Inspection</h3>
-                            <p>Safe and detailed facade inspection without scaffolding or costly equipment.</p>
-                            <span class="video-duration">1:48</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- Aerial Showcase Section -->
         <section class="aerial-showcase">
