@@ -321,97 +321,222 @@ import VideoBackgroundSection from '../components/VideoBackgroundSection.astro';
       </button>
     </div>
     
-    <!-- Enhanced Video Background Section with Integrated Navigation and Hero Content -->
-    <VideoBackgroundSection
-      videoId="8Y_Z3NDEAqU"
-      height="100vh"
-      minHeight="700px"
-      autoplay={true}
-      muted={true}
-      loop={true}
-      controls={true}
-      opacity={1.0}
-      overlayColor="rgba(0, 0, 0, 0.1)"
-      overlayOpacity={0.1}
-      className="trimesh-video-hero"
-    >
-
-
-      <!-- Main Hero Content Integrated with Video -->
-      <div class="video-hero-content">
-        <!-- Main Brand Section with Large Logo -->
-        <div class="brand-section">
-          <div class="brand-logo-container">
-            <img src="/img/TriMesh_Logo.png" alt="Trimesh Drone Solutions LLC" class="video-main-logo" 
-                 onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-            <div class="brand-fallback" style="display: none;">
-              <h1 class="video-main-title">TRIMESH</h1>
-              <p class="video-subtitle">DRONE SOLUTIONS</p>
-            </div>
-          </div>
-          <div class="tagline-container">
-            <h2 class="video-tagline">Professional UAV Services</h2>
-            <span class="accent-text">& Advanced Aerial Solutions</span>
-          </div>
+    <!-- Split-Screen Hero Section - Unified Brand Identity -->
+    <section class="split-hero-section">
+      <!-- Left Side: Aerial Intelligence (Commercial Operations) -->
+      <div class="split-hero-side split-hero-left">
+        <div class="split-hero-image">
+          <img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+               alt="Drone mapping and inspection at construction site" 
+               class="hero-bg-image">
+          <div class="hero-image-overlay"></div>
         </div>
-
-        <!-- Call to Action Section -->
-        <div class="video-cta-section">
-          <button class="video-cta-primary">GET QUOTE</button>
-          <button class="video-cta-secondary">VIEW SERVICES</button>
-        </div>
-
-        <!-- Bottom Accent Text (inspired by wheat field example) -->
-        <div class="video-bottom-text">
-          <p class="elegant-tagline">Precision, reliability, and innovation in every flight</p>
+        <div class="split-hero-content">
+          <div class="hero-badge">COMMERCIAL SERVICES</div>
+          <h2 class="split-hero-subtitle">Data-Driven Inspections</h2>
+          <p class="split-hero-description">Precision mapping, infrastructure analysis, and comprehensive aerial data solutions</p>
+          <button class="split-hero-cta split-hero-cta-primary" data-service="operations">
+            EXPLORE DRONE SOLUTIONS
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
         </div>
       </div>
-    </VideoBackgroundSection>
 
-    <!-- Capabilities Overview Section -->
-    <section class="trimesh-capabilities">
-        <div class="hero-background">
-            <div class="geometric-pattern"></div>
+      <!-- Right Side: Creative Vision (Skyline Media) -->
+      <div class="split-hero-side split-hero-right">
+        <div class="split-hero-image">
+          <img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+               alt="Austin skyline at sunset - cinematic aerial view" 
+               class="hero-bg-image">
+          <div class="hero-image-overlay"></div>
         </div>
-        <div class="capabilities-content">
-            <div class="capabilities-grid">
-                <div class="capability-item">
-                    <div class="capability-icon">
+        <div class="split-hero-content">
+          <div class="hero-badge skyline-badge">CREATIVE MEDIA</div>
+          <h2 class="split-hero-subtitle">Cinematic Storytelling</h2>
+          <p class="split-hero-description">Real estate showcases, marketing content, and breathtaking aerial visuals</p>
+          <button class="split-hero-cta split-hero-cta-secondary" data-service="media">
+            DISCOVER SKYLINE MEDIA
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Center Unified Brand -->
+      <div class="split-hero-center">
+        <div class="unified-brand">
+          <img src="/img/TriMesh_Logo.png" alt="Trimesh Drone Solutions" class="unified-logo">
+          <h1 class="unified-tagline">WHERE AERIAL INTELLIGENCE<br>MEETS CREATIVE VISION</h1>
+          <p class="unified-subtitle">From data-driven inspections to cinematic storytelling — Trimesh unites precision and artistry</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Drone Operations Section - Commercial Services -->
+    <section id="drone-operations" class="operations-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">TRIMESH DRONE SOLUTIONS</div>
+                <h2 class="section-title">Commercial Drone Operations</h2>
+                <p class="section-subtitle">FAA Part 107 Certified • Data-Driven Inspections • Mapping & Analytics</p>
+            </div>
+            
+            <div class="operations-grid">
+                <div class="operation-card">
+                    <div class="operation-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="4" y="4" width="16" height="16" rx="4" stroke="currentColor" stroke-width="2"/>
+                            <path d="M12 8v4l3 2" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>Aerial Inspections</h3>
+                    <p>Comprehensive roof, solar, and infrastructure inspections with detailed reports and thermal imaging capabilities.</p>
+                    <ul class="operation-features">
+                        <li>Roof & Property Inspections</li>
+                        <li>Solar Panel Flyovers</li>
+                        <li>Gutter & Drainage Mapping</li>
+                        <li>Thermal Imaging (Coming Soon)</li>
+                    </ul>
+                    <span class="operation-price">Starting at $125</span>
+                </div>
+
+                <div class="operation-card">
+                    <div class="operation-icon">
                         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12 2L22 7L12 12L2 7L12 2Z" stroke="currentColor" stroke-width="2" fill="none"/>
                             <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2"/>
                             <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2"/>
                         </svg>
                     </div>
-                    <h3>Precision Mapping</h3>
-                    <p>Advanced surveying and topographical analysis with centimeter-level accuracy</p>
+                    <h3>Mapping & Surveying</h3>
+                    <p>Advanced 2D/3D mapping, surveying, and modeling with centimeter-level accuracy for construction and land development.</p>
+                    <ul class="operation-features">
+                        <li>Orthomosaic Mapping (2D)</li>
+                        <li>3D Modeling & Structure Mapping</li>
+                        <li>Elevation & Contour Mapping</li>
+                        <li>Stockpile Volume Calculations</li>
+                    </ul>
+                    <span class="operation-price">Starting at $250/acre</span>
                 </div>
-                
-                <div class="capability-item">
-                    <div class="capability-icon">
+
+                <div class="operation-card">
+                    <div class="operation-icon">
                         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <rect x="3" y="11" width="18" height="7" rx="2" stroke="currentColor" stroke-width="2"/>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="currentColor" stroke-width="2"/>
                         </svg>
                     </div>
-                    <h3>Rapid Deployment</h3>
-                    <p>Emergency response and search & rescue operations with thermal imaging capabilities</p>
-                </div>
-                
-                <div class="capability-item">
-                    <div class="capability-icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="4" y="4" width="16" height="16" rx="4" stroke="currentColor" stroke-width="2"/>
-                            <path d="M12 8v4l3 2" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <h3>Infrastructure Inspection</h3>
-                    <p>Safe and detailed analysis of bridges, towers, and building facades without scaffolding</p>
+                    <h3>Construction Documentation</h3>
+                    <p>Progress reports, site documentation, and permit-ready visuals for construction and development projects.</p>
+                    <ul class="operation-features">
+                        <li>Weekly/Monthly Progress Reports</li>
+                        <li>Permit-Ready Visuals</li>
+                        <li>Utility Infrastructure Flyovers</li>
+                        <li>Pre-Development Documentation</li>
+                    </ul>
+                    <span class="operation-price">Starting at $200</span>
                 </div>
             </div>
+
+            <div class="section-cta">
+                <h3>Ready to Start Your Project?</h3>
+                <p>Get a custom quote tailored to your specific needs. Professional, FAA-certified service with fast turnaround.</p>
+                <a href="https://forms.gle/xM14YWqk6QNLNsAb8" target="_blank" rel="noopener noreferrer" class="cta-button cta-button-primary">
+                    REQUEST QUOTE
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Media & Marketing Section - Austin Skyline Media -->
+    <section id="media-marketing" class="media-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge skyline-badge">AUSTIN SKYLINE MEDIA</div>
+                <h2 class="section-title">Marketing & Aerial Videography</h2>
+                <p class="section-subtitle">Real Estate • Business Marketing • Events • Cinematic Content</p>
+            </div>
             
-            <div class="capabilities-summary">
-                <h2>Why Industry Leaders Choose Trimesh</h2>
-                <p>Our cutting-edge drone technology delivers unmatched precision and reliability for your most critical projects. From construction monitoring to emergency response, we provide the aerial solutions that drive results.</p>
+            <div class="media-grid">
+                <div class="media-card">
+                    <div class="media-image">
+                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Real estate aerial photography">
+                        <div class="media-overlay">
+                            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 21H21L18 8L12 3L6 8L3 21Z" stroke="currentColor" stroke-width="2"/>
+                                <path d="M9 21V13H15V21" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="media-content">
+                        <h3>Real Estate Media</h3>
+                        <p>Stunning aerial photos and videos that make listings stand out. Fast delivery and full listing packages available.</p>
+                        <ul class="media-features">
+                            <li>Aerial Photo Sets (5-10 angles) - <strong>$150</strong></li>
+                            <li>Cinematic Video (1-2 min) - <strong>$250-$350</strong></li>
+                            <li>Full Listing Package - <strong>$400-$600</strong></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="media-card">
+                    <div class="media-image">
+                        <img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Business marketing video production">
+                        <div class="media-overlay">
+                            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
+                                <path d="M8 21L12 17L16 21" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="media-content">
+                        <h3>Business Marketing</h3>
+                        <p>Branded promotional videos and marketing campaigns that capture your business from its best angle.</p>
+                        <ul class="media-features">
+                            <li>Branded Promo Video (30-60 sec) - <strong>$300-$500</strong></li>
+                            <li>Full Brand Story (2-3 min) - <strong>$750-$1,200</strong></li>
+                            <li>Monthly Visual Package - <strong>$900/mo</strong></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="media-card">
+                    <div class="media-image">
+                        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Event videography and highlights">
+                        <div class="media-overlay">
+                            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 5V19L19 12L8 5Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="media-content">
+                        <h3>Events & Highlights</h3>
+                        <p>Cinematic coverage for weddings, corporate events, and special occasions with fast turnaround times.</p>
+                        <ul class="media-features">
+                            <li>Drone-Only Coverage - <strong>$500-$1,000</strong></li>
+                            <li>Cinematic Highlight Reels - <strong>48-72 hr</strong></li>
+                            <li>FPV Fly-throughs - <strong>Coming Soon</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-cta">
+                <h3>Bring Your Vision to Life</h3>
+                <p>Let's create stunning aerial content that tells your story. Professional cinematic production with HDR capture.</p>
+                <a href="#" class="cta-button cta-button-secondary" onclick="alert('Austin Skyline Media form coming soon! Please contact us directly.'); return false;">
+                    GET STARTED
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+                <span class="cta-note">Form link coming soon</span>
             </div>
         </div>
     </section>
@@ -507,53 +632,119 @@ import VideoBackgroundSection from '../components/VideoBackgroundSection.astro';
 
     <main>
 
-        <!-- Aerial Showcase Section -->
-        <section class="aerial-showcase">
+        <!-- Portfolio Section - Unified Project Gallery -->
+        <section id="portfolio" class="portfolio-section">
             <div class="container">
-                <h2 class="section-title">Capturing Every Angle</h2>
-                <p class="section-subtitle">Professional aerial photography and videography showcasing our drones in diverse working environments.</p>
-                
-                <div class="aerial-gallery">
-                    <div class="aerial-image large">
-                        <img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Drone surveying construction site">
-                        <div class="image-overlay">
-                            <h3>Construction Monitoring</h3>
-                            <p>Real-time progress tracking and site analysis</p>
+                <div class="section-header">
+                    <h2 class="section-title">Our Work</h2>
+                    <p class="section-subtitle">Showcasing precision and creativity across commercial operations and cinematic media</p>
+                </div>
+
+                <!-- Portfolio Filter Tabs -->
+                <div class="portfolio-filters">
+                    <button class="filter-btn active" data-filter="all">ALL PROJECTS</button>
+                    <button class="filter-btn" data-filter="operations">DRONE OPERATIONS</button>
+                    <button class="filter-btn" data-filter="media">SKYLINE MEDIA</button>
+                </div>
+
+                <div class="portfolio-grid">
+                    <!-- Operations Projects -->
+                    <div class="portfolio-item" data-category="operations">
+                        <div class="portfolio-image">
+                            <img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Construction site mapping">
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-badge">OPERATIONS</div>
+                            <h3>Construction Site Mapping</h3>
+                            <p>Complete 3D site survey for 50-acre development project with volumetric calculations</p>
                         </div>
                     </div>
-                    <div class="aerial-image">
-                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Drone in mountainous terrain">
-                        <div class="image-overlay">
-                            <h3>Search & Rescue</h3>
-                            <p>Rapid deployment in challenging terrain</p>
+
+                    <div class="portfolio-item" data-category="media">
+                        <div class="portfolio-image">
+                            <img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Austin skyline sunset">
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-badge skyline">SKYLINE MEDIA</div>
+                            <h3>Austin Skyline Series</h3>
+                            <p>Cinematic aerial footage showcasing Austin's iconic skyline during golden hour</p>
                         </div>
                     </div>
-                    <div class="aerial-image">
-                        <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Aerial view of agricultural land">
-                        <div class="image-overlay">
-                            <h3>Land Surveying</h3>
-                            <p>Precision mapping and topographical analysis</p>
+
+                    <div class="portfolio-item" data-category="operations">
+                        <div class="portfolio-image">
+                            <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Roof inspection">
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-badge">OPERATIONS</div>
+                            <h3>Commercial Roof Inspection</h3>
+                            <p>Detailed thermal imaging and structural analysis for 100,000 sq ft warehouse facility</p>
                         </div>
                     </div>
-                    <div class="aerial-image">
-                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Urban building inspection">
-                        <div class="image-overlay">
+
+                    <div class="portfolio-item" data-category="media">
+                        <div class="portfolio-image">
+                            <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Luxury home real estate">
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-badge skyline">SKYLINE MEDIA</div>
+                            <h3>Luxury Real Estate</h3>
+                            <p>Premium listing package with aerial photography and cinematic video tour</p>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" data-category="operations">
+                        <div class="portfolio-image">
+                            <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Agricultural land survey">
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-badge">OPERATIONS</div>
+                            <h3>Agricultural Survey</h3>
+                            <p>Precision orthomosaic mapping and NDVI analysis for 200-acre farm property</p>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" data-category="media">
+                        <div class="portfolio-image">
+                            <img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Business promotional video">
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-badge skyline">SKYLINE MEDIA</div>
+                            <h3>Corporate Brand Story</h3>
+                            <p>3-minute promotional video featuring aerial perspectives of local tech campus</p>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" data-category="operations">
+                        <div class="portfolio-image">
+                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Bridge inspection">
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-badge">OPERATIONS</div>
                             <h3>Infrastructure Inspection</h3>
-                            <p>Safe and thorough structural analysis</p>
+                            <p>High-resolution bridge and overpass structural assessment with detailed reports</p>
                         </div>
                     </div>
-                    <div class="aerial-image">
-                        <img src="https://images.unsplash.com/photo-1464207687429-7505649dae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Drone cleaning windows">
-                        <div class="image-overlay">
-                            <h3>Window Washing</h3>
-                            <p>Efficient cleaning of high-rise buildings</p>
+
+                    <div class="portfolio-item" data-category="media">
+                        <div class="portfolio-image">
+                            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Event coverage">
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-badge skyline">SKYLINE MEDIA</div>
+                            <h3>Special Event Coverage</h3>
+                            <p>Cinematic highlight reel for outdoor wedding with stunning aerial perspectives</p>
                         </div>
                     </div>
-                    <div class="aerial-image">
-                        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Aerial forest survey">
-                        <div class="image-overlay">
-                            <h3>Environmental Monitoring</h3>
-                            <p>Comprehensive environmental assessments</p>
+
+                    <div class="portfolio-item" data-category="operations">
+                        <div class="portfolio-image">
+                            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Solar farm inspection">
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-badge">OPERATIONS</div>
+                            <h3>Solar Farm Analysis</h3>
+                            <p>Thermal imaging inspection and panel health assessment for 50MW solar facility</p>
                         </div>
                     </div>
                 </div>
@@ -683,11 +874,13 @@ import VideoBackgroundSection from '../components/VideoBackgroundSection.astro';
             </div>
         </section>
 
-        <!-- Community Projects Section -->
+        <!-- Community Impact Section - Enhanced -->
         <section id="community" class="community-section">
             <div class="container">
-                <h2 class="section-title">Community Impact</h2>
-                <p class="section-subtitle">Supporting our local community through innovative drone applications and volunteer services</p>
+                <div class="section-header">
+                    <h2 class="section-title">Community Impact</h2>
+                    <p class="section-subtitle">Uniting precision and creativity to serve Austin's community through volunteer drone services and educational programs</p>
+                </div>
                 
                 <div class="community-grid">
                     <div class="community-card featured">
@@ -1118,7 +1311,55 @@ import VideoBackgroundSection from '../components/VideoBackgroundSection.astro';
                     });
                 }
             });
+
+            // Portfolio Filter Functionality
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const portfolioItems = document.querySelectorAll<HTMLElement>('.portfolio-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function(this: HTMLElement) {
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter portfolio items
+                    portfolioItems.forEach(item => {
+                        const category = item.getAttribute('data-category');
+                        
+                        if (filter === 'all' || category === filter) {
+                            item.classList.remove('hidden');
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'scale(1)';
+                            }, 10);
+                        } else {
+                            item.style.opacity = '0';
+                            item.style.transform = 'scale(0.9)';
+                            setTimeout(() => {
+                                item.classList.add('hidden');
+                            }, 300);
+                        }
+                    });
+                });
+            });
+
+            // Split Hero CTA Button Clicks
+            const splitHeroCtas = document.querySelectorAll('.split-hero-cta');
+            splitHeroCtas.forEach(cta => {
+                cta.addEventListener('click', function(this: HTMLElement) {
+                    const service = this.getAttribute('data-service');
+                    if (service === 'operations') {
+                        document.getElementById('drone-operations')?.scrollIntoView({ behavior: 'smooth' });
+                    } else if (service === 'media') {
+                        document.getElementById('media-marketing')?.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
         });
     </script>
 </body>
+</html> 
+</html> 
 </html> 
