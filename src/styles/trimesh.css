@@ -889,6 +889,209 @@ body {
 }
 
 /* ===========================
+   SERVICE DETAIL PAGES
+   =========================== */
+.service-detail-hero {
+    padding: 120px 20px 60px;
+    background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%);
+}
+
+.breadcrumb {
+    display: inline-block;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb:hover {
+    color: var(--trimesh-orange);
+}
+
+.service-detail-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--dark-gray);
+}
+
+.service-detail-subtitle {
+    font-size: 1.3rem;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.service-detail-price {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+}
+
+.service-detail-price strong {
+    color: var(--trimesh-orange);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.service-detail-section {
+    padding: 80px 20px;
+    background-color: var(--white);
+}
+
+.service-section-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 50px;
+    color: var(--dark-gray);
+}
+
+.service-features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.service-feature-item {
+    text-align: center;
+    padding: 20px;
+}
+
+.feature-icon {
+    margin-bottom: 20px;
+    color: var(--trimesh-orange);
+}
+
+.service-feature-item h3 {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--dark-gray);
+}
+
+.service-feature-item p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+.service-deliverables {
+    padding: 80px 20px;
+    background-color: var(--light-gray);
+}
+
+.deliverables-list {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.deliverable-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px;
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.deliverable-item svg {
+    color: var(--trimesh-orange);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.deliverable-item span {
+    font-size: 1rem;
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+.deliverable-item strong {
+    color: var(--dark-gray);
+    font-weight: 600;
+}
+
+.service-perfect-for {
+    padding: 80px 20px;
+    background-color: var(--white);
+}
+
+.perfect-for-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.perfect-for-item {
+    padding: 20px 24px;
+    background: linear-gradient(135deg, var(--trimesh-orange) 0%, #E65A1F 100%);
+    color: var(--white);
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 4px 15px rgba(255, 111, 44, 0.2);
+    transition: all 0.3s ease;
+}
+
+.perfect-for-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 20px rgba(255, 111, 44, 0.3);
+}
+
+.service-cta-section {
+    padding: 100px 20px;
+    background: linear-gradient(135deg, var(--dark-gray) 0%, #1A1A1A 100%);
+    text-align: center;
+    color: var(--white);
+}
+
+.service-cta-section h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.service-cta-section p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+.service-cta-button {
+    display: inline-block;
+    padding: 18px 40px;
+    background-color: var(--trimesh-orange);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(255, 111, 44, 0.4);
+}
+
+.service-cta-button:hover {
+    background-color: #E65A1F;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(255, 111, 44, 0.5);
+}
+
+/* ===========================
    ACCESSIBILITY
    =========================== */
 @media (prefers-reduced-motion: reduce) {
