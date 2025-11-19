@@ -849,6 +849,34 @@ body {
         grid-template-columns: 1fr;
         gap: 30px;
     }
+
+    /* Service detail pages */
+    .service-detail-hero {
+        padding: 100px 20px 50px;
+    }
+
+    .service-features-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .pricing-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pricing-card.featured {
+        transform: scale(1);
+    }
+
+    .pricing-addons {
+        padding: 30px 20px;
+    }
+
+    .addon-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1019,6 +1047,130 @@ body {
 .deliverable-item strong {
     color: var(--dark-gray);
     font-weight: 600;
+}
+
+.service-pricing-section {
+    padding: 80px 20px;
+    background-color: var(--white);
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto 60px;
+}
+
+.pricing-card {
+    background: var(--light-gray);
+    border-radius: 12px;
+    padding: 40px 30px;
+    text-align: center;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.pricing-card.featured {
+    background: linear-gradient(135deg, #FFF5F0 0%, #FFE8DC 100%);
+    border-color: var(--trimesh-orange);
+    transform: scale(1.05);
+    box-shadow: 0 8px 30px rgba(255, 111, 44, 0.2);
+}
+
+.featured-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--trimesh-orange);
+    color: var(--white);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.pricing-card:hover {
+    border-color: var(--trimesh-orange);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.pricing-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--dark-gray);
+}
+
+.pricing-card .price {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--trimesh-orange);
+    margin-bottom: 16px;
+    line-height: 1;
+}
+
+.pricing-card .price span {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.pricing-card p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.pricing-addons {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 40px 30px;
+    background: var(--light-gray);
+    border-radius: 12px;
+}
+
+.pricing-addons h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: var(--dark-gray);
+    text-align: center;
+}
+
+.addon-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.addon-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    background: var(--white);
+    border-radius: 8px;
+    border-left: 4px solid var(--trimesh-orange);
+}
+
+.addon-name {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.addon-price {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--trimesh-orange);
 }
 
 .service-perfect-for {
