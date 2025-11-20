@@ -798,6 +798,22 @@ body {
     flex-wrap: wrap;
 }
 
+.coming-soon-nav {
+    opacity: 0.6 !important;
+    cursor: not-allowed !important;
+    pointer-events: none !important;
+}
+
+.coming-soon-nav:hover {
+    color: inherit !important;
+}
+
+.coming-soon-nav .coming-soon-badge {
+    font-size: 0.65rem;
+    padding: 2px 6px;
+    vertical-align: middle;
+}
+
 .footer-bottom {
     text-align: center;
     padding-top: 30px;
