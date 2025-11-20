@@ -765,6 +765,39 @@ body {
     padding-left: 4px;
 }
 
+.coming-soon-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--white);
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+    font-size: 0.95rem;
+}
+
+.coming-soon-badge {
+    display: inline-block;
+    background-color: var(--trimesh-orange);
+    color: var(--white);
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+}
+
+.coming-soon-notice {
+    margin-top: 12px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
 .footer-bottom {
     text-align: center;
     padding-top: 30px;
